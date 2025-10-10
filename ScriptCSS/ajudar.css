@@ -48,36 +48,40 @@ p{
     
 }
 
-
 #tabelas {
-    position: relative; /* 🔑 necessário para posicionar filhos com absolute */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
     width: 80%;
-    margin-left: calc(8.5%);
-    margin-top: 20px;
-    border-collapse: collapse;
-    border-radius: 15px;
-    text-align: justify;
+    margin: 2px auto;
+    gap: 40px;
 }
 
-#produtos{
-    width: 50%;
-    margin-top: 20px;
-    padding: 2px 20px;
-    border-collapse: collapse;
+
+#produtos {
+    width: 57%; /* 50% + 15% */
+    padding: 20px;
     border-radius: 15px;
-    background: rgba(200, 200, 200, 0);
+    background: rgba(200, 200, 200, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    text-align: justify;
     color: aliceblue;
 }
 
-#quantia-valores h2 {
-    color: #fff;
-    text-align: center;
-    margin-bottom: 10px;
+#quantia-valores {
+    width: 43%; /* 50% - 15% */
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(200, 200, 200, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    color: aliceblue;
 }
+
+
 
 .ranking-scroll {
     max-height: 400px; /* mesmo tamanho visual da div produtos */
@@ -90,6 +94,18 @@ p{
     padding: 0;
     margin: 0;
 }
+
+.barra-ranking {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    color: #fff;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 
 .ranking-list li {
     margin-bottom: 15px;
