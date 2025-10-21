@@ -87,16 +87,51 @@ body {
     box-shadow: 0 0 20px rgba(255, 136, 0, 0.942);
 }
 
-#texto-principal,
-.imagem-conteudo {
-    height: auto;
-    width: 50%;
-    padding-bottom: 3%;
-    display: flex;
+/* Estilo para layout lado a lado */
+.campanha-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+/* Texto ocupa metade da largura */
+.campanha-texto {
+  flex: 1 1 500px;
+  padding: 2%;
+  ;
+}
+
+/* Imagem ocupa metade da largura */
+.campanha-imagem {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.campanha-imagem img {
+  width: 80%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Responsivo: imagem vai para baixo do texto */
+@media (max-width: 768px) {
+  .campanha-container {
     flex-direction: column;
     align-items: center;
-    padding-left: 6%;
+    text-align: center;
+  }
+
+  .campanha-texto, .campanha-imagem {
+    width: 100%;
+  }
 }
+
 
 #doacao,
 #toledo {
@@ -307,6 +342,69 @@ body {
 }
 
 
-footer {
-    background-color: #39413954;
+.site-footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 20px 20px;
+  font-size: 0.95em;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.footer-logo h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #ffd000;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffd000;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+}
+
+.footer-social a img {
+  width: 24px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social a:hover img {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.85em;
+  color: #aaa;
 }
