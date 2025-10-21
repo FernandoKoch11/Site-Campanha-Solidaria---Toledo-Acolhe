@@ -284,6 +284,22 @@ body {
     font-size: 1em;
 }
 
+#rotas-migratorias #texto-rotas h1 {
+  color: #006eff; /* ou qualquer cor que você quiser */
+    text-shadow: 0 0 20px #006eff;
+    font-size: 2.5em;
+}
+
+
+.map-container {
+  margin: 2rem auto;
+  max-width: 800px;
+  border: 2px solid #006eff;
+  box-shadow: 0 0 20px #006eff;
+}
+
+
+
 @keyframes crescer {
     to {
         height: var(--valor);
