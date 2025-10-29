@@ -5,12 +5,11 @@ async function carregarDoadores() {
     const ranking = document.querySelector('.ranking-list');
     ranking.innerHTML = ''; // limpa conteúdo anterior
 
+    // Mapeia doadores apenas com nome e fichas
     const doadores = linhas.slice(1).map((linha, index) => {
-        const partes = linha.split(',');
-        const nome = partes[0];
-        const fichas = parseInt(partes[1]);
-        const itens = partes.slice(2).join(',').replace(/"/g, '');
-        return { nome, fichas, itens, id: `doador-${index}` };
+        const [nome, fichasStr] = linha.split(',');
+        const fichas = parseInt(fichasStr);
+        return { nome, fichas, id: `doador-${index}` };
     });
 
     const totalFichas = doadores.reduce((acc, d) => acc + d.fichas, 0);
@@ -19,7 +18,7 @@ async function carregarDoadores() {
     doadores.forEach(d => {
         d.porcentagem = ((d.fichas / totalFichas) * 100).toFixed(1);
     });
-    doadores.sort((a, b) => b.fichas - a.fichas); // ordena por fichas (ou porcentagem)
+    doadores.sort((a, b) => b.fichas - a.fichas);
 
     doadores.forEach(doador => {
         const li = document.createElement('li');
@@ -32,23 +31,9 @@ async function carregarDoadores() {
                     </div>
                 </div>
             </div>
-            <div class="doacao-detalhes" id="${doador.id}">
-                <p>${doador.itens}</p>
-            </div>
         `;
-        li.onclick = () => mostrarDoacao(doador.id);
         ranking.appendChild(li);
     });
-}
-
-function mostrarDoacao(id) {
-    document.querySelectorAll('.doacao-detalhes').forEach(div => {
-        div.style.display = 'none';
-    });
-    const selecionado = document.getElementById(id);
-    if (selecionado) {
-        selecionado.style.display = 'block';
-    }
 }
 
 window.addEventListener('DOMContentLoaded', carregarDoadores);
